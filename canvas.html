@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas</title>
+  <style>
+    #myCanvas {
+      border: 1px solid #000000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="500" height="300"></canvas>
+  
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    let context = canvas.getContext('2d');
+    
+    // context.fillStyle = 'green';
+    // context.fillRect(0,0,100,100);
+  
+    let painting = false;
+    let erasing=false;
+    
+    function start(e) {
+      painting = true;
+      draw(e);
+    }
+
+    function end() {
+      painting = false;
+      context.beginPath();
+    }
+
+    function draw(e) {
+      if (!painting && !erasing) return;
+      if(painting){
+        context.lineWidth = 5;
+      context.lineCap = 'round';
+      
+
+      context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+      context.stroke();
+      context.beginPath();
+      context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+      }
+      if(erasing){
+         context.clearRect(e.clientX - canvas.offsetLeft -5, e.clientY - canvas.offsetTop -5, 20,20)
+      }0,20
+      
+    }
+
+    function erase(e){
+      if(e.type=="keydown" && e.key=="e"){
+          erasing = true;
+          painting = false;
+      }
+      else if(e.type=="keyup" && e.key=="e"){
+        erasing=false;
+      }
+    }
+
+    
+   
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', end);
+    
+    window.addEventListener('keydown',erase);
+    window.addEventListener('keyup',erase);
+    
+
+  </script>
+</body>
+</html>
