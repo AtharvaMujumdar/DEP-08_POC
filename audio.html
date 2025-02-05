@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio</title>
+</head>
+<body>
+    <audio width="400" height="400" id="audio" >
+     <source src="audio.mp3" type="audio/mp3">
+    </audio>
+   <button onclick="playAud()">Play</button>
+    <script>
+        const aud=document.getElementById("audio");
+       const playAud = () => aud.play();
+    </script>
+</body>
+</html>
