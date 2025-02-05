@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    
+</head>
+<body>
+    <video id="vid1" height="300px" width="300px" muted controls autoplay preload="auto">
+        <source src="video.mp4" type="video/mp4" >
+        
+    </video>
+
+    <button onclick="playVid()">Play</button>
+    <button onclick="loadVid()">Load</button>
+    <button onclick="pauseVid()">Pause</button>
+
+    <script>
+        const vid=document.getElementById("vid1");
+        const playVid = () => vid.play();
+        const pauseVid = () => vid.pause();
+        const loadVid = () => vid.load();
+        // alert(vid.canPlayType("video/mp4"));
+        
+    </script>
+</body>
+</html>
