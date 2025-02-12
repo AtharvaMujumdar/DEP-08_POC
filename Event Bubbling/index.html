@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        div{
+            border: 1px solid black;
+            min-height: 100px;
+            min-width: 100px;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    In this the event propagates from bottom to top. That means if grandparent, parent and child have onclick
+    property and if we click on child then the callback execution order is 
+    Child -> parent -> grandparent
+    this is called event bubbling 
+-->
+
+  <div id="grandparent">
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+  </div>
+    <script src="script.js"></script>
+
+    <!--
+     if i click on child then child -> parent -> grandparent
+     if i click on parent then parent -> grandparent
+     if i click on grandparent then grandparent
+
+     i.e the events are propagated upwards in event bubbling.
+    -->
+</body>
+</html>
