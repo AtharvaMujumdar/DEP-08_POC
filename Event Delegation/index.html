@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+
+    <!--
+      in event delegation, instead all adding events for all the child elements, a single event handler
+      is added to parent element. Event delegation is based on bubbling as it also uses outward movement 
+      of events from child to parent 
+    -->
+
+    <div id="parent">
+        <ul>
+            <li id="one">one</li>
+            <li id="two">two</li>
+            <li id="three">three</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
