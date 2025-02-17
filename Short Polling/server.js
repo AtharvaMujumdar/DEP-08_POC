@@ -1,13 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors()); 
 
 let data = {
   message: 'Hello, World!',
 };
 
 app.get('/data', (req, res) => {
-  // Simulate data update
+  
   data.message = `Updated message at ${new Date().toLocaleTimeString()}`;
   res.json(data);
 });
@@ -15,3 +18,4 @@ app.get('/data', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
