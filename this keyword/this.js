@@ -72,6 +72,9 @@ obj7.myfunc();
 
 3. this can be explicitly set using call(), bind() and apply()
 
+
+When using event handlers in the DOM, this refers to the element that received the event.
+
 */
 
 
