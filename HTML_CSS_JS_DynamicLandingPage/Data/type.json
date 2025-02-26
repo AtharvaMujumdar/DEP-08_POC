@@ -1,0 +1,245 @@
+{
+    "cars": [
+        {
+            "name": "SUV",
+            "image": "./Images/Types/suv.png"
+        },
+        {
+            "name": "Sedan",
+            "image": "./Images/Types/sedan.png"
+        },
+        {
+            "name": "Hatchback",
+            "image": "./Images/Types/hatchback.png"
+        },
+        {
+            "name": "Coupe",
+            "image": "./Images/Types/coupe.png"
+        },
+        {
+            "name": "Hybrid",
+            "image": "./Images/Types/hybrid.png"
+        },
+        {
+            "name": "Convertible",
+            "image": "./Images/Types/convertible.png"
+        },
+        {
+            "name": "Van",
+            "image": "./Images/Types/van.png"
+        },
+        {
+            "name": "Truck",
+            "image": "./Images/Types/truck.png"
+        },
+        {
+            "name": "Electric",
+            "image": "./Images/Types/electric.png"
+        }
+    ],
+    "brands": [
+        {
+            "brand_name": "Audi",
+            "image": "./Images/Brands/audi.jpg"
+        },
+        {
+            "brand_name": "BMW",
+            "image": "./Images/Brands/bmw.jpg"
+        },
+        {
+            "brand_name": "Ford",
+            "image": "./Images/Brands/ford.jpg"
+        },
+        {
+            "brand_name": "Mercedes",
+            "image": "./Images/Brands/benz.jpg"
+        },
+        {
+            "brand_name": "Peugot",
+            "image": "./Images/Brands/peugot.jpg"
+        },
+        {
+            "brand_name": "Volkswagen",
+            "image": "./Images/Brands/volkswagen.jpg"
+        },
+        {
+            "brand_name": "Bently",
+            "image": "./Images/Brands/bently.jpg"
+        },
+        {
+            "brand_name": "Nissan",
+            "image": "./Images/Brands/nissan.jpg"
+        },
+        {
+            "brand_name": "Jeep",
+            "image": "./Images/Brands/jeep.jpg"
+        },
+        {
+            "brand_name": "Skoda",
+            "image": "./Images/Brands/skoda.jpg"
+        }
+    ],
+    "reviews": [
+        {
+            "title": "Great Work",
+            "review": "Amazing design, easy to customize and a design quality superlative account on it's cloud platform for the optimized performance. And we didn't on our own original designs.",
+            "name": "Leslie Alexander",
+            "designation": "Facebook",
+            "image": "./Images/profile1.png"
+        },
+        {
+            "title": "Awesome Design",
+            "review": "Amazing design, easy to customize and a design quality superlative account on it's cloud platform for the optimized performance. And we didn't on our own original designs.",
+            "name": "Flyod Miles",
+            "designation": "Designer",
+            "image": "./Images/profile2.png"
+        },
+        {
+            "title": "Good Job",
+            "review": "Amazing design, easy to customize and a design quality superlative account on it's cloud platform for the optimized performance. And we didn't on our own original designs.",
+            "name": "Dianne Russel",
+            "designation": "Marketing",
+            "image": "./Images/profile3.png"
+        },
+        {
+            "title": "Good!!!",
+            "review": "Amazing.",
+            "name": "person4",
+            "designation": "Facebook",
+            "image": "./Images/profile1.png"
+        },
+        {
+            "title": "Awesome!!!",
+            "review": "Amazing design.",
+            "name": "five",
+            "designation": "Designer",
+            "image": "./Images/profile2.png"
+        },
+        {
+            "title": "Great!!!",
+            "review": "Good .",
+            "name": "person6",
+            "designation": "Facebook",
+            "image": "./Images/profile1.png"
+        }
+    ],
+    "blogs": [
+        {
+            "image": "./Images/blogpic1.png",
+            "blog": "2024 BMW ALPHA XB7 with exclusive details, extraordinary",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        },
+        {
+            "image": "./Images/blogpic2.png",
+            "blog": "BMW X6 M5Oi is designed to exceed your sportiest.",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        },
+        {
+            "image": "./Images/blogpic3.png",
+            "blog": "BMW X5 GOLD 2024 Sport Review: Light on Sport.",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        },
+        {
+            "image": "./Images/blogpic1.png",
+            "blog": "2024 BMW ALPHA XB7 with exclusive details, extraordinary",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        },
+        {
+            "image": "./Images/blogpic2.png",
+            "blog": "BMW X6 M5Oi is designed to exceed your sportiest.",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        },
+        {
+            "image": "./Images/blogpic3.png",
+            "blog": "BMW X5 GOLD 2024 Sport Review: Light on Sport.",
+            "role": "Admin",
+            "date": "Nov 22, 2023"
+        }
+    ],
+    "carsInfo": [
+        {
+            "image": "./Images/Cars/car1.jpg",
+            "name": "T-Cross",
+            "year": "2023",
+            "mileage": "15 Miles",
+            "fuel": "Petrol",
+            "mode": "CVT",
+            "price": "$ 15,000",
+            "category": "new",
+            "company" : "Range Rover"
+        },
+        {
+            "image": "./Images/Cars/car2.jpg",
+             "name": "C-Class",
+            "year": "2023",
+            "mileage": "50 Miles",
+            "fuel": "Petrol",
+            "mode": "Automatic",
+            "price": "$ 150,000",
+            "category": "new",
+            "company" : "Mercedes Benz"
+        },
+        {
+            "image": "./Images/Cars/car3.jpg",
+            "name": "Ford Transit",
+            "year": "2021",
+            "mileage": "2500 Miles",
+            "fuel": "Diesel",
+            "mode": "Manual",
+            "price": "$ 22,000",
+            "category": "new",
+            "company" : "Ford"
+
+        },
+        {
+            "image": "./Images/Cars/car4.jpg",
+            "name": "New GLC",
+            "year": "2023",
+            "mileage": "50 Miles",
+            "fuel": "Petrol",
+            "mode": "Automatic",
+            "price": "$ 95,000",
+            "category": "new",
+            "company" : "Nissan"   
+        },
+       
+        {
+            "image": "./Images/Cars/car4.jpg",
+            "name": "New GLC",
+            "year": "2023",
+            "mileage": "50 Miles",
+            "fuel": "Petrol",
+            "mode": "Automatic",
+            "price": "$ 95,000",
+            "category": "old" ,
+            "company" : "Nissan"  
+        },
+        {
+            "image": "./Images/Cars/car5.jpg",
+            "name": "Audi A6 3.5",
+            "year": "New",
+            "mileage": "100 Miles",
+            "fuel": "Petrol",
+            "mode": "Automatic",
+            "price": "$ 58,000",
+            "category": "instock" ,
+            "company" : "Audi"
+        },
+        {
+            "image": "./Images/Cars/car6.jpg",
+            "name": "Corolla Altis",
+            "year": "2023",
+            "mileage": "15000 Miles",
+            "fuel": "Petrol",
+            "mode": "CVT",
+            "price": "$ 45,000",
+            "category": "instock" ,
+            "company" : "Toyota"
+        }
+    ]
+}

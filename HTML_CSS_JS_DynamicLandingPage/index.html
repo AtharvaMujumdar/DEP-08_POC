@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXCARS</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="">
+    <!-- Header -->
+    <header id="header" class="header w-full text-white bg-cover bg-center h-[650px]">
+
+        <section class="flex justify-between items-center w-full p-6 md:p-10">
+            <h1 class="text-2xl"><img src="./Images/logo.png" class="h-10 w-auto"></h1>
+
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+
+            <nav class="hidden md:flex items-center gap-6 md:gap-10">
+                <ul class="flex space-x-6 md:space-x-10">
+                    <li><a href="" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="" class="hover:text-gray-300">Listings</a></li>
+                    <li><a href="" class="hover:text-gray-300">Blog</a></li>
+                    <li><a href="" class="hover:text-gray-300">Pages</a></li>
+                    <li><a href="" class="hover:text-gray-300">About</a></li>
+                    <li><a href="" class="hover:text-gray-300">Contact</a></li>
+                </ul>
+                <button onclick="sign_in_form()"><img src="./Images/sign_in_image.png" class="h-8 w-auto"></button>
+                <button><img src="./Images/submit_listing_image.png" class="h-8 w-auto"></button>
+            </nav>
+        </section>
+
+
+        <section id="mobile-menu" class="hidden flex flex-col items-center bg-black text-white p-6 space-y-4 md:hidden">
+            <a href="">Home</a>
+            <a href="">Listings</a>
+            <a href="">Blog</a>
+            <a href="">Pages</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+            <button onclick="sign_in_form()"><img src="./Images/sign_in_image.png" class="h-8 w-auto"></button>
+            <button><img src="./Images/submit_listing_image.png" class="h-8 w-auto"></button>
+        </section>
+
+
+        <section class="p-6 md:p-10 text-center md:text-left">
+            <h1 class="text-2xl md:text-3xl mb-3">Let's Find Your Perfect Car</h1>
+
+            <!-- Search Form -->
+            <section class="bg-white p-4 sm:p-6 rounded-lg max-w-md w-full text-black">
+                <div class="flex flex-wrap bg-white text-black rounded-lg mb-4 border border-black">
+                    <button id="newBtn" class="w-1/2 py-2 text-white bg-black rounded-l-lg"
+                        onclick="setCondition('new')">New</button>
+                    <button id="usedBtn" class="w-1/2 py-2 text-black" onclick="setCondition('used')">Used</button>
+                </div>
+                <form>
+                    <label for="make" class="block text-black">Select Make</label>
+                    <select id="make" class="w-full p-2 mt-1 rounded bg-white text-black" onchange="updateModels()">
+                        <option value="audi">Audi</option>
+                        <option value="mercedes benz">Mercedes Benz</option>
+                        <option value="nissan">Nissan</option>
+                        <option value="ford">Ford</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="range rover">Range Rover</option>
+                    </select>
+
+                    <label for="model" class="block text-black mt-4">Select Model</label>
+                    <select id="model" class="w-full p-2 mt-1 rounded bg-white text-black">
+                        <!-- Models will be populated dynamically -->
+                    </select>
+
+                    <!-- <label for="price" class="block text-black mt-4">Select Price</label>
+                    <input type="range" id="price" min="0" max="250000" step="1000" class="w-full mt-2">
+                    <div class="flex justify-between text-black text-sm">
+                        <span>$0</span>
+                        <span>$250,000</span>
+                    </div> -->
+
+                    <button  class="w-full bg-blue-500 text-white py-2 mt-6 rounded-lg hover:bg-blue-600" id="carSearchForm">
+                        Search
+                    </button>
+                </form>
+            </section>
+
+
+        </section>
+    </header>
+
+    <!-- Sign-In Form -->
+    <section id="signin" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50 hidden p-4">
+        <section class="bg-white p-4 sm:p-6 w-11/12 sm:w-96 rounded-lg max-h-screen overflow-auto">
+            <h2 class="text-2xl p-4 sm:p-5">Sign-In</h2>
+            <label class="block mb-2">Email</label>
+            <input type="email" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Email">
+            <label class="block mb-2">Password</label>
+            <input type="password" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Password">
+            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Sign-In</button>
+            <button onclick="closesignin()"
+                class="w-full bg-red-500 text-white py-2 mt-2 rounded-lg hover:bg-red-600">Close</button>
+        </section>
+    </section>
+
+    <!-- Search results -->
+    <section id="carcard" class="fixed inset-0 z-50 flex justify-center items-center bg-white bg-opacity-90 max-h-screen hidden p-4">
+
+    </section>
+
+
+    <!-- Browse by type -->
+
+    <section class="flex flex-col px-4 sm:px-10 m-2">
+        <section class="flex flex-col sm:flex-row justify-between items-center">
+            <h2 class="text-3xl p-4 sm:p-10">Browse by Type</h2>
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton" onclick="viewall()">
+                <span>View All</span> 
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+            </button>
+        </section>
+        <section id="browse_by_type" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-12">
+            <!-- dynamically updated content -->
+        </section>
+    </section>
+    
+
+
+    <!-- explore our premium brands -->
+
+    <section class="flex flex-col px-4 sm:px-10 m-2">
+        <section class="flex flex-col sm:flex-row justify-between items-center">
+            <h2 class="text-3xl p-4 sm:p-10">Explore Our Premium Brands</h2>
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton2" onclick="viewall2()">
+                <span>Show All Brands</span> 
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+            </button>
+        </section>
+        <section id="explore_brands" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-12">
+            <!-- this is updates dynamically -->
+
+        </section>
+
+    </section>
+
+
+    <!-- Featured listing -->
+    <section class="flex flex-col px-4 sm:px-10 mt-10 mb-10">
+        <section class="flex flex-col sm:flex-row justify-between items-center">
+            <h2 class="text-3xl p-4 sm:p-10">Featured Listings</h2>
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="featuredlistbutton" onclick="viewall5()">
+                <span>View All</span> 
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+            </button>
+        </section>
+    
+        <section class="flex flex-wrap gap-3 justify-center sm:justify-start px-4 sm:px-10 mb-10">
+            <button id="instockbutton" class="px-4 py-2 bg-gray-200 rounded-lg">In-Stock</button>
+            <button id="newbutton" class="px-4 py-2 bg-gray-200 rounded-lg">New Cars</button>
+            <button id="oldbutton" class="px-4 py-2 bg-gray-200 rounded-lg">Used Cars</button>
+        </section>
+    
+        <section id="featured_list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-10">
+            <!-- dynamically updated content -->
+        </section>
+    </section>
+    
+
+    <!-- why electric -->
+
+    <section class="flex flex-col lg:flex-row p-6 sm:p-10 justify-between items-start m-4 sm:m-10 gap-10">
+        <section class="flex flex-col gap-4 p-2 text-center lg:text-left">
+            <h3 class="font-bold text-2xl">Why Electric Vehicles?</h3>
+            <p>We are committed to providing our customers with exceptional service, competitive pricing, and a wide range of.</p>
+            <button class="self-center lg:self-start"><img src="./Images/getstarted.png"></button>
+        </section>
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-2 text-center sm:text-left">
+                <img src="./Images/grid1.png" class="mx-auto sm:mx-0">
+                <h3 class="font-bold text-xl mt-2">Special Financing Offers</h3>
+                <p>Our stress-free finance department that can find financial solutions to save you money.</p>
+            </div>
+            <div class="p-4 text-center sm:text-left">
+                <img src="./Images/grid2.png" class="mx-auto sm:mx-0">
+                <h3 class="font-bold text-xl mt-2">Trusted Car Dealership</h3>
+                <p>Our stress-free finance department that can find financial solutions to save you money.</p>
+            </div>
+            <div class="p-2 text-center sm:text-left">
+                <img src="./Images/grid3.png" class="mx-auto sm:mx-0">
+                <h3 class="font-bold text-xl mt-2">Transparent Pricing</h3>
+                <p>Our stress-free finance department that can find financial solutions to save you money.</p>
+            </div>
+            <div class="p-4 text-center sm:text-left">
+                <img src="./Images/grid4.png" class="mx-auto sm:mx-0">
+                <h3 class="font-bold text-xl mt-2">Expert Car Service</h3>
+                <p>Our stress-free finance department that can find financial solutions to save you money.</p>
+            </div>
+        </section>
+    </section>
+    
+
+    <!-- Numbers -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 sm:p-10 text-blue bg-indigo-50 m-4 sm:m-10 rounded-xl text-blue-600 text-center">
+        <section class="flex flex-col p-6 sm:p-10">
+            <h3 class="text-2xl font-bold">836M</h3>
+            <p>CARS FOR SALE</p>
+        </section>
+        <section class="flex flex-col p-6 sm:p-10">
+            <h3 class="text-2xl font-bold">738M</h3>
+            <p>DEALER REVIEWS</p>
+        </section>
+        <section class="flex flex-col p-6 sm:p-10">
+            <h3 class="text-2xl font-bold">100M</h3>
+            <p>CARS FOR SALE</p>
+        </section>
+        <section class="flex flex-col p-6 sm:p-10">
+            <h3 class="text-2xl font-bold">238M</h3>
+            <p>VERIFIED DEALERS</p>
+        </section>
+    </section>
+    
+
+    <!-- Recently Added Cars -->
+
+    <section class="flex flex-col px-4 sm:px-10 m-2">
+        <section class="flex flex-col sm:flex-row justify-between items-center">
+            <h2 class="text-3xl p-4 sm:p-10">Recently Added</h2>
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="recentlyaddedbutton" onclick="viewall4()">
+                <span>View All</span> 
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+            </button>
+        </section>
+        <section id="recently_added" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-12">
+            <!-- this is updates dynamically -->
+        </section>
+
+    </section>
+
+
+
+    <!-- Cusotmer Reviews -->
+    <section class="bg-slate-950 p-6 sm:p-10 m-4 sm:m-10 text-white flex flex-col items-center rounded-xl gap-6">
+        <section class="flex flex-col lg:flex-row justify-between items-center text-center lg:text-left w-full">
+            <h3 class="text-2xl sm:text-3xl">What our customers say</h3>
+            <p class="text-gray-400 text-sm sm:text-base mt-2 lg:mt-0">
+                Rated 4.7/5 based on 28,370 reviews | Showing our 4 & 5-star reviews
+            </p>
+        </section>
+    
+        <section class="flex flex-row overflow-x-auto gap-6 w-full scrollbar-hide" id="reviews">
+            <!-- reviews will be updated dynamically -->
+        </section>
+    
+        <section class="flex flex-row gap-4 mt-4">
+            <button id="prevButton" class="bg-white p-2 rounded-full hover:bg-gray-200">
+                <img src="./Images/arrow-left.png" class="w-6 h-6">
+            </button>
+            <button id="nextButton" class="bg-white p-2 rounded-full hover:bg-gray-200">
+                <img src="./Images/arrow-right.png" class="w-6 h-6">
+            </button>
+        </section>
+    </section>
+    
+
+
+    <!-- Latest Blogs -->
+
+    <section class="flex flex-col px-4 sm:px-10 m-2">
+        <section class="flex flex-col sm:flex-row justify-between items-center">
+            <h2 class="text-3xl p-4 sm:p-10">Latest Blog Posts</h2>
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="blogbutton" onclick="viewall3()">
+                <span>View All</span> 
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+            </button>
+        </section>
+        <section id="latest_blog_post" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-12">
+            <!-- this is updates dynamically -->
+        </section>
+
+    </section>
+
+    <!-- subscribe to mail -->
+    <section class="p-10 sm:pl-20 sm:pr-10 flex flex-col lg:flex-row rounded-xl m-1">
+        
+        <section class="p-5 bg-blue-700 w-full sm:w-80 lg:w-[80%] rounded-l-xl rounded-t-none flex items-center justify-center sm:rounded-t-xl sm:rounded-none">
+            <img src="/Images/mail_image.png" class="h-full object-cover">
+        </section>
+    
+        <!-- Right Text Section -->
+        <section class="flex flex-col justify-center items-center p-10 sm:p-20 w-full bg-blue-600 rounded-b-xl lg:rounded-none lg:rounded-r-xl gap-4 lg:h-full">
+            <h3 class="text-2xl sm:text-3xl text-center opacity-90 text-white font-bold">
+                Subscribe to Our Mailing <br class="hidden sm:block"> List And Stay Up to Date
+            </h3>
+            <p class="text-center text-white opacity-70 text-sm sm:text-base">
+                We'll keep you updated with the best new jobs
+            </p>
+            <section class="rounded-lg p-2 flex flex-col sm:flex-row gap-2 sm:gap-4 items-center bg-blue-700 w-full sm:w-auto">
+                <input class="opacity-70 p-2 bg-transparent border border-gray-300 rounded-md w-full sm:w-64 text-gray-500" 
+                    type="email" placeholder="Your Email Address">
+                <button class="bg-white text-blue-700 px-4 py-2 rounded-lg w-full sm:w-auto">
+                    Sign Up
+                </button>
+            </section>
+        </section>
+    </section>
+    
+    
+
+
+    <!-- footer -->
+    <section class="">
+        
+        <footer class="flex flex-col md:flex-row flex-wrap justify-between items-center md:items-start w-full  border-b border-gray-600 px-6 sm:px-10 py-10 gap-5">
+            
+            
+            <section class="flex flex-col items-center md:items-start w-full sm:w-auto p-4 gap-4">
+                <h2 class="text-xl font-semibold whitespace-nowrap">Company</h2>
+                <a href="#" class="hover:underline">About Us</a>
+                <a href="#" class="hover:underline">Blogs</a>
+                <a href="#" class="hover:underline">Services</a>
+                <a href="#" class="hover:underline">FAQs</a>
+                <a href="#" class="hover:underline">Terms</a>
+                <a href="#" class="hover:underline">Contact Us</a>
+            </section>
+            
+            
+            <section class="flex flex-col items-center md:items-start w-full sm:w-auto p-4 gap-4">
+                <h3 class="text-xl font-semibold whitespace-nowrap">Quick Links</h3>
+                <a href="#" class="hover:underline">Get in Touch</a>
+                <a href="#" class="hover:underline">Help Center</a>
+                <a href="#" class="hover:underline">Live Chat</a>
+                <a href="#" class="hover:underline">How it works</a>
+            </section>
+    
+            
+            <section class="flex flex-col items-center md:items-start w-full sm:w-auto p-4 gap-4">
+                <h3 class="text-xl font-semibold whitespace-nowrap">Our Brands</h3>
+                <div class="grid grid-cols-1 gap-2 text-center md:text-left">
+                    <a href="#" class="hover:underline">Toyota</a>
+                    <a href="#" class="hover:underline">Porsche</a>
+                    <a href="#" class="hover:underline">Audi</a>
+                    <a href="#" class="hover:underline">BMW</a>
+                    <a href="#" class="hover:underline">Ford</a>
+                    <a href="#" class="hover:underline">Nissan</a>
+                    <a href="#" class="hover:underline">Peugeot</a>
+                    <a href="#" class="hover:underline">Volkswagen</a>
+                </div>
+            </section>
+    
+            
+            <section class="flex flex-col items-center md:items-start w-full sm:w-auto p-4 gap-4">
+                <h3 class="text-xl font-semibold whitespace-nowrap">Vehicle Type</h3>
+                <div class="grid grid-cols-1 gap-2 text-center md:text-left">
+                    <a href="#" class="hover:underline">Sedan</a>
+                    <a href="#" class="hover:underline">Hatchback</a>
+                    <a href="#" class="hover:underline">SUV</a>
+                    <a href="#" class="hover:underline">Hybrid</a>
+                    <a href="#" class="hover:underline">Electric</a>
+                    <a href="#" class="hover:underline">Coupe</a>
+                    <a href="#" class="hover:underline">Truck</a>
+                    <a href="#" class="hover:underline">Convertible</a>
+                </div>
+            </section>
+    
+            
+            <section class="flex flex-col items-center md:items-start w-full sm:w-auto p-4 gap-4">
+                <h3 class="text-xl font-semibold whitespace-nowrap">Sales Hours</h3>
+                <p>Monday – Friday: 09:00AM – 09:00 PM</p>
+                <p>Saturday: 09:00AM – 07:00PM</p>
+                <p>Sunday: Closed</p>
+    
+                <h3 class="text-xl font-semibold whitespace-nowrap">Connect With Us</h3>
+                <section class="flex flex-row space-x-4">
+                    <a href="#"><img src="./Images/facebook-fill.png" class="w-6 h-6"></a>
+                    <a href="#"><img src="./Images/twitter-fill.png" class="w-6 h-6"></a>
+                    <a href="#"><img src="./Images/instagram-line.png" class="w-6 h-6"></a>
+                    <a href="#"><img src="./Images/linkedin-fill.png" class="w-6 h-6"></a>
+                </section>
+            </section>
+        </footer>
+    
+        
+        <section class="flex flex-col md:flex-row justify-between px-6 sm:px-10 py-6 text-[14px] w-full items-center text-center md:text-left">
+            <p>&copy; 2023 Boxcars.com. All Rights Reserved.</p>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                <p class="hover:underline cursor-pointer">Terms and Conditions</p>
+                <p class="hover:underline cursor-pointer">&#9679; Privacy Notice</p>
+            </div>
+            <a class="rounded-full bg-blue-600 p-3 hover:bg-blue-700 transition duration-300 mt-4 md:mt-0" href="#header">
+                <img src="./Images/arrow-up-line.png" class="w-6 h-6">
+            </a>
+        </section>
+    </section>
+    
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

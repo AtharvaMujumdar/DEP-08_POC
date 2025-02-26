@@ -1,0 +1,17 @@
+*{
+    font-family: 'DM Sans';
+}
+.header{
+    background-image: url("./Images/header_image.jpg");
+}
+html {
+    scroll-behavior: smooth;
+  }
+  
+  
+  .type{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
