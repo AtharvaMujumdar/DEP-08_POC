@@ -1,3 +1,4 @@
+import API_KEY from './key.js';
 //hamburger icon for mobile
 document.getElementById('menu-btn').addEventListener('click', function () {
     document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -56,7 +57,7 @@ function updateModels() {
     
 }
 
-document.addEventListener("DOMContentLoaded", updateModels);
+
 
 
 function sign_in_form() {
@@ -79,6 +80,7 @@ function fetchBrowseTypeDataPartial() {
                 const item = document.createElement("section");
                 item.classList.add("type");
                 const img = document.createElement("img");
+                img.setAttribute("alt", "car");
                 img.src = type.image;
                 const name = document.createElement("h3");
                 name.textContent = type.name;
@@ -99,8 +101,10 @@ function fetchBrowseTypeDataFull() {
             data.cars.forEach(type => {
                 const item = document.createElement("section");
                 item.classList.add("type");
+                
                 const img = document.createElement("img");
                 img.src = type.image;
+                img.setAttribute("alt", "car");
                 const name = document.createElement("h3");
                 name.textContent = type.name;
                 item.appendChild(img);
@@ -122,6 +126,7 @@ function fetchBrandsPartial() {
                 const item = document.createElement("section");
                 item.classList.add("type");
                 const img = document.createElement("img");
+                img.setAttribute("alt", type.brand_name);
                 img.src = type.image;
                 const name = document.createElement("h3");
                 name.textContent = type.brand_name;
@@ -144,6 +149,7 @@ function fetchBrandsFull() {
                 const item = document.createElement("section");
                 item.classList.add("type");
                 const img = document.createElement("img");
+                img.setAttribute("alt", type.brand_name);
                 img.src = type.image;
                 const name = document.createElement("h3");
                 name.textContent = type.brand_name;
@@ -180,11 +186,11 @@ function displayReviews(startIndex) {
              <section class="flex flex-col bg-white text-black p-4 sm:p-6 m-4 rounded-xl shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
     <div class="flex flex-row justify-between items-center mb-4">
         <h3 class="text-lg sm:text-xl font-bold leading-tight">${review.title}</h3>
-        <img src="./Images/inverted_comma.png" alt="Quote" class="w-5 sm:w-6">
+        <img src="./Images/inverted_comma.png" alt="Quote" class="w-5 sm:w-6" >
     </div>
     <p class="text-sm sm:text-base leading-relaxed">${review.review}</p>
     <div class="flex flex-row mt-4 items-center">
-        <img src="${review.image}" alt="Profile Image" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full mr-3 sm:mr-4">
+        <img src="${review.image}" alt="Profile Image" class="w-10 sm:w-12 h-10 sm:h-12 rounded-full mr-3 sm:mr-4" >
         <div class="flex flex-col">
             <h3 class="font-semibold text-sm sm:text-base">${review.name}</h3>
             <p class="text-xs sm:text-sm text-gray-600">${review.designation}</p>
@@ -220,8 +226,8 @@ function fetchBlogsPartial() {
             const blogs = data.blogs.slice(0, 3);
             blogs.forEach(blog => {
                 const blogcard = `
-            <section class="flex flex-col gap-2">
-                <img src="${blog.image}">
+            <section class="transition-transform duration-300 hover:-translate-y-5 flex flex-col gap-2">
+                <img src="${blog.image}" alt="alttext">
                 <div class="flex flex-row gap-7">
                 <p>${blog.role}</p>
                 <p class="text-gray-500">&#8226;</p>
@@ -246,8 +252,8 @@ function fetchBlogsFull() {
 
             data.blogs.forEach(blog => {
                 const blogcard = `
-            <section class="flex flex-col gap-2">
-                <img src="${blog.image}">
+            <section class="transition-transform duration-300 hover:-translate-y-5 flex flex-col gap-2">
+                <img src="${blog.image}" alt="alttext">
                 <div class="flex flex-row gap-7">
                 <p>${blog.role}</p>
                 <p class="text-gray-500">&#8226;</p>
@@ -271,8 +277,8 @@ function fetchRecentlyAddedPartial() {
             const recent = data.carsInfo.filter((car) => car.category === "new").slice(0, 3);
             recent.forEach(car => {
                 const carcard = `
-              <section class="flex flex-col rounded-xl gap-7">
-                <img class="rounded-t-xl" src="${car.image}">
+              <section class="transition-transform duration-300 hover:-translate-y-5 flex flex-col rounded-xl gap-7">
+                <img class="rounded-t-xl" src="${car.image}" alt="alttext">
                 <div class="pl-5 pr-5">
                 <div class="flex flex-row font-bold">
                     <p>${car.name} - </p>
@@ -286,7 +292,7 @@ function fetchRecentlyAddedPartial() {
                     <p>${car.mode}</p>
                 </div>
                 <h3 class="mt-3 mb-3 font-bold text-xl">${car.price}</h3>
-                <button class="flex flex-row text-blue-700"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png"></button>
+                <button class="flex flex-row text-blue-700" title="button"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext"></button>
                  </div>
                 </section>
         `;
@@ -307,8 +313,8 @@ function fetchRecentlyAddedFull() {
             const recent = data.carsInfo.filter((car) => car.category === "new");
             recent.forEach(car => {
                 const carcard = `
-              <section class="flex flex-col rounded-xl gap-7">
-                <img class="rounded-t-xl" src="${car.image}">
+              <section class="transition-transform duration-300 hover:-translate-y-5 flex flex-col rounded-xl gap-7">
+                <img class="rounded-t-xl" src="${car.image}" alt="alttext">
                 <div class="pl-5 pr-5">
                 <div class="flex flex-row font-bold">
                     <p>${car.name} - </p>
@@ -322,7 +328,7 @@ function fetchRecentlyAddedFull() {
                     <p>${car.mode}</p>
                 </div>
                 <h3 class="mt-3 mb-3 font-bold text-xl">${car.price}</h3>
-                <button class="flex flex-row text-blue-700"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png"></button>
+                <button class="flex flex-row text-blue-700" title="button"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext"></button>
                  </div>
                 </section>
         `;
@@ -346,8 +352,8 @@ function displayCars(cate) {
             else { cars = data.carsInfo.filter((car) => car.category === cate); }
             cars.forEach(car => {
                 const carcard = `
-              <section class="flex flex-col rounded-xl gap-7">
-                <img class="rounded-t-xl" src="${car.image}">
+              <section class="transition-transform duration-300 hover:-translate-y-5 flex flex-col rounded-xl gap-7">
+                <img class="rounded-t-xl" src="${car.image}" alt="alttext">
                 <div class="pl-5 pr-5">
                 <div class="flex flex-row font-bold">
                     <p>${car.name} - </p>
@@ -361,7 +367,7 @@ function displayCars(cate) {
                     <p>${car.mode}</p>
                 </div>
                 <h3 class="mt-3 mb-3 font-bold text-xl">${car.price}</h3>
-                <button class="flex flex-row text-blue-700 view-details-btn"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png"></button>
+                <button class="flex flex-row text-blue-700 view-details-btn" title="button"><span>View Details</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext"></button>
                  </div>
                 </section>
         `;
@@ -393,7 +399,7 @@ function searchCars(e){
                     const parent = document.getElementById("carcard");
                     const carcard = `
                     <section class="flex flex-col rounded-xl gap-7">
-                      <img class="rounded-t-xl" src="${car.image}">
+                      <img class="rounded-t-xl" src="${car.image}" alt="alttext">
                       <div class="pl-5 pr-5">
                       <div class="flex flex-row font-bold">
                           <p>${car.name} - </p>
@@ -445,7 +451,7 @@ function viewall() {
         fetchBrowseTypeDataFull();
     } else {
         isclicked = false;
-        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">`;
+        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">`;
         fetchBrowseTypeDataPartial();
     }
 }
@@ -459,7 +465,7 @@ function viewall2() {
         fetchBrandsFull();
     } else {
         isclicked2 = false;
-        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">`;
+        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">`;
         fetchBrandsPartial();
     }
 }
@@ -474,7 +480,7 @@ function viewall3() {
 
     } else {
         isclicked = false;
-        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">`;
+        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">`;
         fetchBlogsPartial();
     }
 }
@@ -488,7 +494,7 @@ function viewall4() {
         fetchRecentlyAddedFull();
     } else {
         isclicked = false;
-        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">`;
+        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">`;
         fetchRecentlyAddedPartial();
     }
 }
@@ -502,7 +508,7 @@ function viewall5() {
         displayCars("");
     } else {
         isclicked = false;
-        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">`;
+        button.innerHTML = `<span>View All</span> <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">`;
         displayCars("instock");
     }
 }
@@ -518,6 +524,66 @@ document.getElementById('carSearchForm').addEventListener('click', searchCars);
 function closeSearchCard(){
     document.getElementById("carcard").classList.add("hidden");
 }
+
+
+//Bot 
+
+async function fetchBotResponse(input) {
+    
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+  
+    const requestBody = {
+      contents: [
+        {
+          parts: [
+            { text: input }
+          ]
+        }
+      ]
+    };
+  
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+  
+      const data = await response.json();
+      console.log(data)
+      return data.candidates[0].content.parts[0].text;
+    } catch (error) {
+      console.error('Error:', error);
+      return 'There was an error processing your request.';
+    }
+  }
+  
+
+document.getElementById("askBotBtn").addEventListener("click", function () {
+    document.getElementById("chatbot").classList.toggle("hidden");
+});
+
+document.getElementById("sendBtn").addEventListener("click", async function () {
+
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    
+    if (message) {
+        const chatWindow = document.getElementById("chatWindow");
+        const userMessage = `<section class='text-right text-white mb-2 p-2 bg-blue-800 w-auto rounded-xl'>${message}</section>`;
+        chatWindow.innerHTML += userMessage;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        const response = await fetchBotResponse(message);
+        const responseMessage = `<section class='text-left text-white p-2 bg-gray-600 mb-2 rounded-xl'>${response}</section>`;
+        
+        chatWindow.innerHTML += responseMessage;
+        
+        input.value = "";
+    }
+});
 
 
 

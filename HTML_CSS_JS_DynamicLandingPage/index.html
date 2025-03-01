@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
 
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./Images/logo512.png" type="image/png">
+    <link rel="apple-touch-icon" href="./Images/logo512.png">
 
 </head>
 
@@ -17,10 +24,10 @@
     <header id="header" class="header w-full text-white bg-cover bg-center h-[650px]">
 
         <section class="flex justify-between items-center w-full p-6 md:p-10">
-            <h1 class="text-2xl"><img src="./Images/logo.png" class="h-10 w-auto"></h1>
+            <h1 class="text-2xl"><img src="./Images/logo.png" class="h-10 w-auto" alt="image" alt="alttext"></h1>
 
 
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none" title="button">
                 <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -30,28 +37,28 @@
 
             <nav class="hidden md:flex items-center gap-6 md:gap-10">
                 <ul class="flex space-x-6 md:space-x-10">
-                    <li><a href="" class="hover:text-gray-300">Home</a></li>
-                    <li><a href="" class="hover:text-gray-300">Listings</a></li>
-                    <li><a href="" class="hover:text-gray-300">Blog</a></li>
-                    <li><a href="" class="hover:text-gray-300">Pages</a></li>
-                    <li><a href="" class="hover:text-gray-300">About</a></li>
-                    <li><a href="" class="hover:text-gray-300">Contact</a></li>
+                    <li><a href="" class="hover:text-gray-300">Home<i class="ri-arrow-down-s-fill"></i></a></li>
+                    <li><a href="" class="hover:text-gray-300">Listings<i class="ri-arrow-down-s-fill"></i></a></li>
+                    <li><a href="" class="hover:text-gray-300">Blog<i class="ri-arrow-down-s-fill"></i></a></li>
+                    <li><a href="" class="hover:text-gray-300">Pages<i class="ri-arrow-down-s-fill"></i></a></li>
+                    <li><a href="" class="hover:text-gray-300">About</i></a></li>
+                    <li><a href="" class="hover:text-gray-300">Contact</i></a></li>
                 </ul>
-                <button onclick="sign_in_form()"><img src="./Images/sign_in_image.png" class="h-8 w-auto"></button>
-                <button><img src="./Images/submit_listing_image.png" class="h-8 w-auto"></button>
+                <button onclick="sign_in_form()" title="button"><img src="./Images/sign_in_image.png" class="h-8 w-auto" alt="alttext"></button>
+                <button title="button"><img src="./Images/submit_listing_image.png" alt="image" class="h-8 w-auto" alt="alttext"></button>
             </nav>
         </section>
 
 
         <section id="mobile-menu" class="hidden flex flex-col items-center bg-black text-white p-6 space-y-4 md:hidden">
-            <a href="">Home</a>
-            <a href="">Listings</a>
-            <a href="">Blog</a>
-            <a href="">Pages</a>
-            <a href="">About</a>
+            <a href="">Home<i class="ri-arrow-down-s-fill"></i></a>
+            <a href="">Listings<i class="ri-arrow-down-s-fill"></i></a>
+            <a href="">Blog<i class="ri-arrow-down-s-fill"></i></a>
+            <a href="">Pages<i class="ri-arrow-down-s-fill"></i></a>
+            <a href="">About</i></a>
             <a href="">Contact</a>
-            <button onclick="sign_in_form()"><img src="./Images/sign_in_image.png" class="h-8 w-auto"></button>
-            <button><img src="./Images/submit_listing_image.png" class="h-8 w-auto"></button>
+            <button onclick="sign_in_form()" title="button"><img src="./Images/sign_in_image.png" alt="image" class="h-8 w-auto" alt="alttext"></button>
+            <button title="button"><img src="./Images/submit_listing_image.png" alt="image" class="h-8 w-auto" alt="alttext"></button>
         </section>
 
 
@@ -63,11 +70,11 @@
                 <div class="flex flex-wrap bg-white text-black rounded-lg mb-4 border border-black">
                     <button id="newBtn" class="w-1/2 py-2 text-white bg-black rounded-l-lg"
                         onclick="setCondition('new')">New</button>
-                    <button id="usedBtn" class="w-1/2 py-2 text-black" onclick="setCondition('used')">Used</button>
+                    <button id="usedBtn" class="w-1/2 py-2 text-black" onclick="setCondition('used')" title="button">Used</button>
                 </div>
                 <form>
                     <label for="make" class="block text-black">Select Make</label>
-                    <select id="make" class="w-full p-2 mt-1 rounded bg-white text-black" onchange="updateModels()">
+                    <select id="make" class="w-full p-2 mt-1 rounded bg-white text-black" onchange="updateModels()" name="form">
                         <option value="audi">Audi</option>
                         <option value="mercedes benz">Mercedes Benz</option>
                         <option value="nissan">Nissan</option>
@@ -77,18 +84,18 @@
                     </select>
 
                     <label for="model" class="block text-black mt-4">Select Model</label>
-                    <select id="model" class="w-full p-2 mt-1 rounded bg-white text-black">
+                    <select id="model" class="w-full p-2 mt-1 rounded bg-white text-black" name="form">
                         <!-- Models will be populated dynamically -->
                     </select>
 
                     <!-- <label for="price" class="block text-black mt-4">Select Price</label>
-                    <input type="range" id="price" min="0" max="250000" step="1000" class="w-full mt-2">
+                    <input type="range" id="price" min="0" max="250000" step="1000" class="w-full mt-2" name="form">
                     <div class="flex justify-between text-black text-sm">
                         <span>$0</span>
                         <span>$250,000</span>
                     </div> -->
 
-                    <button  class="w-full bg-blue-500 text-white py-2 mt-6 rounded-lg hover:bg-blue-600" id="carSearchForm">
+                    <button  class="w-full bg-blue-500 text-white py-2 mt-6 rounded-lg hover:bg-blue-600" id="carSearchForm" title="button">
                         Search
                     </button>
                 </form>
@@ -103,10 +110,10 @@
         <section class="bg-white p-4 sm:p-6 w-11/12 sm:w-96 rounded-lg max-h-screen overflow-auto">
             <h2 class="text-2xl p-4 sm:p-5">Sign-In</h2>
             <label class="block mb-2">Email</label>
-            <input type="email" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Email">
+            <input type="email" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Email" name="form">
             <label class="block mb-2">Password</label>
-            <input type="password" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Password">
-            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Sign-In</button>
+            <input type="password" class="w-full p-2 rounded-lg mb-4 border border-black" placeholder="Enter Password" name="form">
+            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600" title="button">Sign-In</button>
             <button onclick="closesignin()"
                 class="w-full bg-red-500 text-white py-2 mt-2 rounded-lg hover:bg-red-600">Close</button>
         </section>
@@ -123,9 +130,9 @@
     <section class="flex flex-col px-4 sm:px-10 m-2">
         <section class="flex flex-col sm:flex-row justify-between items-center">
             <h2 class="text-3xl p-4 sm:p-10">Browse by Type</h2>
-            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton" onclick="viewall()">
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton" onclick="viewall()" title="button">
                 <span>View All</span> 
-                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+                <img class="w-5 h-5" alt="image" src="./Images/arrow-right-up-line.png" alt="alttext">
             </button>
         </section>
         <section id="browse_by_type" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-12">
@@ -140,9 +147,9 @@
     <section class="flex flex-col px-4 sm:px-10 m-2">
         <section class="flex flex-col sm:flex-row justify-between items-center">
             <h2 class="text-3xl p-4 sm:p-10">Explore Our Premium Brands</h2>
-            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton2" onclick="viewall2()">
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="typebutton2" onclick="viewall2()" title="button">
                 <span>Show All Brands</span> 
-                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">
             </button>
         </section>
         <section id="explore_brands" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-12">
@@ -157,16 +164,16 @@
     <section class="flex flex-col px-4 sm:px-10 mt-10 mb-10">
         <section class="flex flex-col sm:flex-row justify-between items-center">
             <h2 class="text-3xl p-4 sm:p-10">Featured Listings</h2>
-            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="featuredlistbutton" onclick="viewall5()">
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="featuredlistbutton" onclick="viewall5()" title="button">
                 <span>View All</span> 
-                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="alttext">
             </button>
         </section>
     
         <section class="flex flex-wrap gap-3 justify-center sm:justify-start px-4 sm:px-10 mb-10">
-            <button id="instockbutton" class="px-4 py-2 bg-gray-200 rounded-lg">In-Stock</button>
-            <button id="newbutton" class="px-4 py-2 bg-gray-200 rounded-lg">New Cars</button>
-            <button id="oldbutton" class="px-4 py-2 bg-gray-200 rounded-lg">Used Cars</button>
+            <button id="instockbutton" class="px-4 py-2 bg-gray-200 rounded-lg" title="button">In-Stock</button>
+            <button id="newbutton" class="px-4 py-2 bg-gray-200 rounded-lg" title="button">New Cars</button>
+            <button id="oldbutton" class="px-4 py-2 bg-gray-200 rounded-lg" title="button">Used Cars</button>
         </section>
     
         <section id="featured_list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-10">
@@ -181,26 +188,26 @@
         <section class="flex flex-col gap-4 p-2 text-center lg:text-left">
             <h3 class="font-bold text-2xl">Why Electric Vehicles?</h3>
             <p>We are committed to providing our customers with exceptional service, competitive pricing, and a wide range of.</p>
-            <button class="self-center lg:self-start"><img src="./Images/getstarted.png"></button>
+            <button class="self-center lg:self-start" title="button"><img src="./Images/getstarted.png" alt="image" alt="alttext"></button>
         </section>
         <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="p-2 text-center sm:text-left">
-                <img src="./Images/grid1.png" class="mx-auto sm:mx-0">
+                <img src="./Images/grid1.png" class="mx-auto sm:mx-0" alt="image" alt="alttext">
                 <h3 class="font-bold text-xl mt-2">Special Financing Offers</h3>
                 <p>Our stress-free finance department that can find financial solutions to save you money.</p>
             </div>
             <div class="p-4 text-center sm:text-left">
-                <img src="./Images/grid2.png" class="mx-auto sm:mx-0">
+                <img src="./Images/grid2.png" class="mx-auto sm:mx-0" alt="image" alt="alttext">
                 <h3 class="font-bold text-xl mt-2">Trusted Car Dealership</h3>
                 <p>Our stress-free finance department that can find financial solutions to save you money.</p>
             </div>
             <div class="p-2 text-center sm:text-left">
-                <img src="./Images/grid3.png" class="mx-auto sm:mx-0">
+                <img src="./Images/grid3.png" class="mx-auto sm:mx-0" alt="image" alt="alttext">
                 <h3 class="font-bold text-xl mt-2">Transparent Pricing</h3>
                 <p>Our stress-free finance department that can find financial solutions to save you money.</p>
             </div>
             <div class="p-4 text-center sm:text-left">
-                <img src="./Images/grid4.png" class="mx-auto sm:mx-0">
+                <img src="./Images/grid4.png" class="mx-auto sm:mx-0" alt="image" alt="alttext">
                 <h3 class="font-bold text-xl mt-2">Expert Car Service</h3>
                 <p>Our stress-free finance department that can find financial solutions to save you money.</p>
             </div>
@@ -234,12 +241,12 @@
     <section class="flex flex-col px-4 sm:px-10 m-2">
         <section class="flex flex-col sm:flex-row justify-between items-center">
             <h2 class="text-3xl p-4 sm:p-10">Recently Added</h2>
-            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="recentlyaddedbutton" onclick="viewall4()">
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="recentlyaddedbutton" onclick="viewall4()" title="button">
                 <span>View All</span> 
-                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="image" alt="alttext">
             </button>
         </section>
-        <section id="recently_added" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-12">
+        <section id="recently_added" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-12">
             <!-- this is updates dynamically -->
         </section>
 
@@ -261,11 +268,11 @@
         </section>
     
         <section class="flex flex-row gap-4 mt-4">
-            <button id="prevButton" class="bg-white p-2 rounded-full hover:bg-gray-200">
-                <img src="./Images/arrow-left.png" class="w-6 h-6">
+            <button id="prevButton" class="bg-white p-2 rounded-full hover:bg-gray-200" title="button">
+                <img src="./Images/arrow-left.png" class="w-6 h-6" alt="image" alt="alttext">
             </button>
-            <button id="nextButton" class="bg-white p-2 rounded-full hover:bg-gray-200">
-                <img src="./Images/arrow-right.png" class="w-6 h-6">
+            <button id="nextButton" class="bg-white p-2 rounded-full hover:bg-gray-200" title="button">
+                <img src="./Images/arrow-right.png" class="w-6 h-6" alt="image" alt="alttext">
             </button>
         </section>
     </section>
@@ -277,9 +284,9 @@
     <section class="flex flex-col px-4 sm:px-10 m-2">
         <section class="flex flex-col sm:flex-row justify-between items-center">
             <h2 class="text-3xl p-4 sm:p-10">Latest Blog Posts</h2>
-            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="blogbutton" onclick="viewall3()">
+            <button class="p-4 sm:p-10 flex flex-row items-center gap-2" id="blogbutton" onclick="viewall3()" title="button">
                 <span>View All</span> 
-                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png">
+                <img class="w-5 h-5" src="./Images/arrow-right-up-line.png" alt="image" alt="alttext">
             </button>
         </section>
         <section id="latest_blog_post" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-12">
@@ -292,7 +299,7 @@
     <section class="p-10 sm:pl-20 sm:pr-10 flex flex-col lg:flex-row rounded-xl m-1">
         
         <section class="p-5 bg-blue-700 w-full sm:w-80 lg:w-[80%] rounded-l-xl rounded-t-none flex items-center justify-center sm:rounded-t-xl sm:rounded-none">
-            <img src="/Images/mail_image.png" class="h-full object-cover">
+            <img src="/Images/mail_image.png" class="h-full object-cover" alt="image" alt="alttext">
         </section>
     
         <!-- Right Text Section -->
@@ -305,8 +312,8 @@
             </p>
             <section class="rounded-lg p-2 flex flex-col sm:flex-row gap-2 sm:gap-4 items-center bg-blue-700 w-full sm:w-auto">
                 <input class="opacity-70 p-2 bg-transparent border border-gray-300 rounded-md w-full sm:w-64 text-gray-500" 
-                    type="email" placeholder="Your Email Address">
-                <button class="bg-white text-blue-700 px-4 py-2 rounded-lg w-full sm:w-auto">
+                    type="email" placeholder="Your Email Address" name="form">
+                <button class="bg-white text-blue-700 px-4 py-2 rounded-lg w-full sm:w-auto" title="button">
                     Sign Up
                 </button>
             </section>
@@ -380,10 +387,10 @@
     
                 <h3 class="text-xl font-semibold whitespace-nowrap">Connect With Us</h3>
                 <section class="flex flex-row space-x-4">
-                    <a href="#"><img src="./Images/facebook-fill.png" class="w-6 h-6"></a>
-                    <a href="#"><img src="./Images/twitter-fill.png" class="w-6 h-6"></a>
-                    <a href="#"><img src="./Images/instagram-line.png" class="w-6 h-6"></a>
-                    <a href="#"><img src="./Images/linkedin-fill.png" class="w-6 h-6"></a>
+                    <a href="#"><img src="./Images/facebook-fill.png" alt="image" class="w-6 h-6" alt="alttext"></a>
+                    <a href="#"><img src="./Images/twitter-fill.png" alt="image" class="w-6 h-6" alt="alttext"></a>
+                    <a href="#"><img src="./Images/instagram-line.png" alt="image" class="w-6 h-6" alt="alttext"></a>
+                    <a href="#"><img src="./Images/linkedin-fill.png" alt="image" class="w-6 h-6" alt="alttext"></a>
                 </section>
             </section>
         </footer>
@@ -396,11 +403,25 @@
                 <p class="hover:underline cursor-pointer">&#9679; Privacy Notice</p>
             </div>
             <a class="rounded-full bg-blue-600 p-3 hover:bg-blue-700 transition duration-300 mt-4 md:mt-0" href="#header">
-                <img src="./Images/arrow-up-line.png" class="w-6 h-6">
+                <img src="./Images/arrow-up-line.png" alt="image" class="w-6 h-6" alt="alttext">
             </a>
         </section>
     </section>
     
+    <!-- Bot Button -->
+    <button id="askBotBtn" class="fixed bottom-5 left-5 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600" title="button">
+        Ask Bot
+    </button>
+
+    <!-- Chatbot Container -->
+<section id="chatbot" class="fixed bottom-20 left-5 w-80 bg-black text-white shadow-lg rounded-lg hidden overflow-y-auto">
+    <section class="p-4 border-b bg-gray-900 text-white font-bold">Chatbot</section>
+    <section id="chatWindow" class="p-4 h-60 overflow-y-auto"></section>
+    <section class="p-4 border-t flex text-black">
+        <input id="chatInput" type="text" class="w-full p-2 border rounded-l" placeholder="Ask me anything..." name="form">
+        <button id="sendBtn" class="bg-white text-black border px-4 rounded-r" title="button">Send</button>
+    </section>
+</section>
     
 
     <script src="https://cdn.tailwindcss.com"></script>
