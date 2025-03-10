@@ -4,6 +4,7 @@ if(typeof(Worker)!=undefined){
     if(worker===undefined){
         worker = new Worker("worker.js");
     }
+    worker.postMessage("hello")
     worker.onmessage = (e)=>{
        document.getElementById("output").innerText = e.data;
     }
