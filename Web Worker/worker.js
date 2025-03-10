@@ -1,6 +1,6 @@
 let i =0;
 let data;
-onmessage= (e) =>{
+onmessage= (e) =>{ // recieves message from script.js
    data = e.data;
 }
 function output(){
