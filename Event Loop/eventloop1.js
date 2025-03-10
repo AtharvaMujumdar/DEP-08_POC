@@ -83,3 +83,43 @@ nested settimeout      after 1 sec
 */
 
 
+//Example-3
+
+/*
+
+setImmediate () is executed after micro task queue but before macrotask/ call back queue.
+
+*/
+
+console.log("start");
+
+const prom3 = new Promise((resolve,reject)=>resolve());
+
+function give(){
+    return ()=>console.log("function");
+}
+
+setTimeout(()=>console.log("setimeout-1"),1000);
+
+prom3.then(()=>{
+    console.log("promise-1");
+})
+
+setImmediate(()=>{
+    console.log("set immediate");
+})
+
+console.log("end");
+
+/*
+
+output is 
+start
+end
+promise-1
+set immediate
+setimeout-1   after1 sec
+
+*/
+
+
