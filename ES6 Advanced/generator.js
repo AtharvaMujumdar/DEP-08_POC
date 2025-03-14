@@ -17,7 +17,7 @@ function* gen1(){
     yield 3;
 }
 const obj1 = gen1();
-console.log(obj1.next());
+console.log(obj1.next()); //output: 1
 
 
 //custom iterator case-1
@@ -29,7 +29,7 @@ const countInfo = {
         return {
             next(){
                 if(i<3){
-                    return {value:this.arr[i],done:false};
+                    return {value:this.arr[i++],done:false};
                 }
                 else{
                     return {value:"finished",done:true};
