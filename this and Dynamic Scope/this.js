@@ -23,7 +23,7 @@ const obj2 = {
     
 };
 
-obj2.myfunc(); // this gives global execution object as this inside the function takes reference of settimeout which points to window object
+obj2.myfunc; // this gives global execution object as this inside the function takes reference of settimeout which points to window object
 /* if settimeput is inside a function then it will log obj4. */
 
 // CASE-4
