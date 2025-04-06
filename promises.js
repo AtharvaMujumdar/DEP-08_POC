@@ -87,3 +87,17 @@ Promise.allSettled([pro3,pro2])
 
 
 
+const inputArray = ["Jhon","Alice","Bob","Alex","Max"];
+const output = {
+    J: ["Jhon"],
+    A: ["Alice","Alex"],
+    B: ["Bob"]
+}
+const obj ={};
+inputArray.forEach((str)=>{
+    const char = str[0];
+    if(obj[char]===undefined){
+        obj[char] = [];
+    }
+    obj[char].push(str);
+})
